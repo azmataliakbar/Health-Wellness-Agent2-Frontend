@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+Key Achievements
+Feature	Status	Example
+Local Responses	✅ Working	"Focus on cardio..." → source: "local"
+OpenAI Fallback	✅ Working	"Basic pushup form..." → source: "openai"
+Token Tracking	✅ Working	57 tokens (visible in UI)
+Error Handling	✅ Robust	Clear error messages if APIs fail
+
+https://health-wellness-agent2-backend.onrender.com/
+https://health-wellness-agent2-backend.onrender.com/docs

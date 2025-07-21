@@ -1,103 +1,161 @@
-import Image from "next/image";
+"use client";
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import type { Message, APIResponse } from '@/types';
+import styles from '@/styles/HealthChat.module.css';
 
-export default function Home() {
+export default function HealthChat() {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Fix hydration by waiting for mount
+  useEffect(() => {
+    setHasMounted(true);
+    messagesEndRef.current?.scrollIntoView();
+  }, []);
+
+  // Auto-scroll when messages update
+  useEffect(() => {
+    if (hasMounted) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, hasMounted]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+
+    setIsLoading(true);
+    setMessages(prev => [...prev, { text: input, sender: 'user' }]);
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_input: input }),
+      });
+
+      if (!response.ok) throw new Error(`Something went wrong. Please try again (check API key or server), Error: ${response.status}`);
+      
+      const data: APIResponse = await response.json();
+      setMessages(prev => [...prev, {
+        text: data.response,
+        sender: 'bot',
+        source: data.source,
+        tokensUsed: data.tokens_used
+      }]);
+    } catch (error) {
+      console.error('API Error:', error);
+      setMessages(prev => [...prev, {
+        text: error instanceof Error
+          ? `⚠️ ${error.message}`
+          : "⚠️ Something went wrong. Please try again (check API key or server).",
+        sender: 'bot'
+      }]);
+    } finally {
+      setIsLoading(false);
+      setInput('');
+    }
+  };
+
+  // Prevent hydration mismatch
+  if (!hasMounted) return (
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>🌿 Health & Wellness Assistant</h1>
+      </header>
+      <div className={styles.chatContainer}>
+        <p>Loading...</p>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className={styles.container} suppressHydrationWarning>
+      <header className={styles.header}>
+        <h1>🌿 Health & Wellness Assistant</h1>
+        <p>Ask me anything about fitness, nutrition, or general health!</p>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <div className={styles.chatContainer}>
+        {messages.length === 0 ? (
+          <div className={styles.welcomeMessage}>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/h2.png"
+              alt="Health Bot"
+              width={100}
+              height={100}
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <p>Hi there! I can help with:</p>
+            <ul>
+              <li>Weight loss plans</li>
+              <li>Exercise techniques</li>
+              <li>Healthy recipes</li>
+              <li>General wellness tips</li>
+            </ul>
+          </div>
+        ) : (
+          messages.map((msg, i) => (
+            <div
+              key={i}
+              className={`${styles.message} ${
+                msg.sender === 'user' ? styles.userMessage : styles.botMessage
+              }`}
+            >
+              {msg.sender === 'bot' && <div className={styles.botIndicator}>🤖</div>}
+              <div className={styles.messageContent}>
+                <p>{msg.text}</p>
+                {msg.source && (
+                  <div className={styles.messageMeta}>
+                    <span className={
+                      msg.source === 'local' ? styles.localTag : styles.openaiTag
+                    }>
+                      {msg.source === 'local' ? 'Local Knowledge' : 'AI Generated'}
+                    </span>
+                    {msg.tokensUsed && (
+                      <span className={styles.tokenBadge}>
+                        {msg.tokensUsed} tokens
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))
+        )}
+        {isLoading && (
+          <div className={styles.typingIndicator}>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      <form onSubmit={handleSubmit} className={styles.inputForm}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask about health..."
+          className={styles.inputField}
+          disabled={isLoading}
+          aria-label="Type your health question"
+        />
+        <button
+          type="submit"
+          className={styles.sendButton}
+          disabled={isLoading || !input.trim()}
+          aria-label="Send message"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {isLoading ? 'Sending...' : 'Send'}
+        </button>
+      </form>
     </div>
   );
 }
