@@ -96,8 +96,8 @@ To communicate with the backend, create a `.env.local` file with this content:
 NEXT_PUBLIC_BACKEND_URL=https://health-wellness-agent2-backend.onrender.com
 
 ✅ This ensures backend URL can be accessed securely in the frontend.
-
-To run the app locally:
+```
+# To run the app locally:
 
 # 1. Clone the repo
 git clone https://github.com/yourusername/health-wellness-frontend.git
@@ -112,40 +112,33 @@ touch .env.local
 
 # 4. Run the app
 npm run dev
+# ---------------------------------------------
 
-🌍 Deployment Process
+# 🌍 Deployment Process
 ✅ Netlify Steps:
 Push your frontend code to GitHub.
 
 Log in to Netlify.
-
 Select "New site from Git" and connect your GitHub repository.
-
 Set build command: npm run build
-
 Set publish directory: out or .next
-
 Add environment variable: NEXT_PUBLIC_BACKEND_URL
-
 Click Deploy Site
 
 ✅ Site will be auto-redeployed on every Git push.
 
 
-✨ Special Note
+# ✨ Special Note
 This frontend integrates seamlessly with our intelligent FastAPI backend to provide:
 
-📋 Health tips
-
-🏃‍♂️ Exercise advice
-
-🥗 Nutrition plans
-
-🤖 AI-based responses (when needed)
+# 📋 Health tips
+# 🏃‍♂️ Exercise advice
+# 🥗 Nutrition plans
+# 🤖 AI-based responses (when needed)
 
 Designed to give users a smooth and helpful experience across all platforms.
 
-🙏 Acknowledgement
+# 🙏 Acknowledgement
 Developed with ❤️ by Azmat Ali
 Connected to Python backend via API
 Deployed using Render & Netlify
