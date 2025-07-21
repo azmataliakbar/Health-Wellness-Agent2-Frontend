@@ -1,16 +1,8 @@
-5-
-![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
-6-
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
-7-
-![Health Bot](/assets/chat1.png)
-8-
-![API Screen](/assets/chat2.png)
-9-
-![Health Bot](/public/chat1.png)
-10-
-![API Screen](/public/chat2.png)
 
+1-NextJs Frontend Chat Bot:
+![Health Bot](/public/chat1.png)
+2-API Backend Chat Web Page:
+![API Screen](/public/chat2.png)
 
 
 # 🌿 Health & Wellness Assistant (Frontend)
@@ -100,24 +92,18 @@ To communicate with the backend, create a `.env.local` file with this content:
 ```env
 NEXT_PUBLIC_BACKEND_URL=https://health-wellness-agent2-backend.onrender.com
 
-<!-- IMAGE-SEPARATOR-START -->
+---
 ✅ This ensures backend URL can be accessed securely in the frontend.
-
-5-
-![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
-6-
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
-7-
-![Health Bot](/assets/chat1.png)
-8-
-![API Screen](/assets/chat2.png)
-9-
+<div></div>
+1-NextJs Frontend Chat Bot:
+---
 ![Health Bot](/public/chat1.png)
-10-
+---
+2-API Backend Chat Web Page:
+---
 ![API Screen](/public/chat2.png)
-
-<!-- IMAGE-SEPARATOR-END -->
-
+---
+<div></div>
 To run the app locally:
 
 # 1. Clone the repo
@@ -177,19 +163,14 @@ https://health-wellness-agent2-backend.onrender.com/
 https://health-wellness-agent2-backend.onrender.com/docs
 
 
-<!-- IMAGE-SEPARATOR-START -->
-
-5-
-![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
-6-
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
-7-
-![Health Bot](/assets/chat1.png)
-8-
-![API Screen](/assets/chat2.png)
-9-
+---
+1-NextJs Frontend Chat Bot:
+<a id="image1"></a>
+---
 ![Health Bot](/public/chat1.png)
-10-
+---
+2-API Backend Chat Web Page:
+<a id="image2"></a>
+---
 ![API Screen](/public/chat2.png)
-
-<!-- IMAGE-SEPARATOR-END -->
+---
