@@ -1,3 +1,18 @@
+5-
+![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+6-
+![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
+7-
+![Health Bot](/assets/chat1.png)
+8-
+![API Screen](/assets/chat2.png)
+9-
+![Health Bot](/public/chat1.png)
+10-
+![API Screen](/public/chat2.png)
+
+
+
 # 🌿 Health & Wellness Assistant (Frontend)
 
 This is the frontend for the **Health & Wellness Assistant** project, built using **Next.js** and deployed on **Netlify**. It connects to a Python-based **FastAPI backend** hosted on **Render** to provide intelligent responses about fitness, diet, and wellness.
