@@ -124,7 +124,7 @@ Click Deploy Site
 ![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
 
 
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
 
 
 
