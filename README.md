@@ -1,7 +1,10 @@
 
 1-NextJs Frontend Chat Bot:
+
 ![Health Bot](/public/chat1.png)
+
 2-API Backend Chat Web Page:
+
 ![API Screen](/public/chat2.png)
 
 
@@ -92,18 +95,8 @@ To communicate with the backend, create a `.env.local` file with this content:
 ```env
 NEXT_PUBLIC_BACKEND_URL=https://health-wellness-agent2-backend.onrender.com
 
----
 ✅ This ensures backend URL can be accessed securely in the frontend.
-<div></div>
-1-NextJs Frontend Chat Bot:
----
-![Health Bot](/public/chat1.png)
----
-2-API Backend Chat Web Page:
----
-![API Screen](/public/chat2.png)
----
-<div></div>
+
 To run the app locally:
 
 # 1. Clone the repo
@@ -161,16 +154,3 @@ Deployed using Render & Netlify
 
 https://health-wellness-agent2-backend.onrender.com/
 https://health-wellness-agent2-backend.onrender.com/docs
-
-
----
-1-NextJs Frontend Chat Bot:
-<a id="image1"></a>
----
-![Health Bot](/public/chat1.png)
----
-2-API Backend Chat Web Page:
-<a id="image2"></a>
----
-![API Screen](/public/chat2.png)
----
