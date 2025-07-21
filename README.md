@@ -87,6 +87,21 @@ NEXT_PUBLIC_BACKEND_URL=https://health-wellness-agent2-backend.onrender.com
 
 ✅ This ensures backend URL can be accessed securely in the frontend.
 
+5-
+![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+6-
+![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
+7-
+![Health Bot](/assets/chat1.png)
+8-
+![API Screen](/assets/chat2.png)
+9-
+![Health Bot](/public/chat1.png)
+10-
+![API Screen](/public/chat2.png)
+
+
+
 To run the app locally:
 
 # 1. Clone the repo
@@ -121,13 +136,6 @@ Click Deploy Site
 
 ✅ Site will be auto-redeployed on every Git push.
 
-![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png?v=1)
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png?v=1)
-
-
-
-
-
 
 ✨ Special Note
 This frontend integrates seamlessly with our intelligent FastAPI backend to provide:
@@ -153,3 +161,16 @@ https://health-wellness-agent2-backend.onrender.com/
 https://health-wellness-agent2-backend.onrender.com/docs
 
 
+
+5-
+![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+6-
+![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat2.png)
+7-
+![Health Bot](/assets/chat1.png)
+8-
+![API Screen](/assets/chat2.png)
+9-
+![Health Bot](/public/chat1.png)
+10-
+![API Screen](/public/chat2.png)
