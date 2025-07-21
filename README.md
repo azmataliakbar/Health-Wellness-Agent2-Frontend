@@ -121,10 +121,12 @@ Click Deploy Site
 
 ✅ Site will be auto-redeployed on every Git push.
 
-![Health Bot](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+![Health Bot](./assets/chat1.png)
 
 
-![API Screen](https://raw.githubusercontent.com/azmataliakbar/Health-Wellness-Agent2-Frontend/master/assets/chat1.png)
+
+![API Screen](./assets/chat2.png)
+
 
 
 
