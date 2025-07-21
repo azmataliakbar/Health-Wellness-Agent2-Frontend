@@ -121,8 +121,8 @@ Click Deploy Site
 
 ✅ Site will be auto-redeployed on every Git push.
 
-![Health Bot](assets/chat1.png)
-![API Bot](assets/chat2.png)
+![Health Bot](./assets/chat1.png)
+![API Bot](./assets/chat2.png)
 
 
 ✨ Special Note
