@@ -121,10 +121,10 @@ Click Deploy Site
 
 ✅ Site will be auto-redeployed on every Git push.
 
-![Health Bot](/assets/chat1.png)
-![API Screen](/assets/chat2.png)
-![Health Bot](/public/chat1.png)
-![API Screen](/public/chat2.png)
+![Health Bot](./assets/chat1.png)
+![API Screen](./assets/chat2.png)
+![Health Bot](./public/chat1.png)
+![API Screen](./public/chat2.png)
 
 
 
