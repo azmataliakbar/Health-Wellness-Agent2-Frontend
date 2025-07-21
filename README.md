@@ -1,47 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 Health & Wellness Assistant (Frontend)
 
-## Getting Started
+This is the frontend for the **Health & Wellness Assistant** project, built using **Next.js** and deployed on **Netlify**. It connects to a Python-based **FastAPI backend** hosted on **Render** to provide intelligent responses about fitness, diet, and wellness.
 
-First, run the development server:
+---
 
-```bash
+## 📁 Project Structure
+📦 health-wellness-frontend
+├── pages/
+│ ├── api/
+│ │ └── chat.ts # API route to communicate with FastAPI backend
+│ └── page.tsx # Main chat interface page
+├── public/
+│ └── h2.png # Health bot image
+├── styles/
+│ └── HealthChat.module.css # CSS styles for the chat interface
+├── types/
+│ └── index.ts # TypeScript interfaces
+├── .env.local # Environment variable to store backend URL
+├── README.md # Project documentation
+└── globals.css # Global CSS styles
+
+
+---
+
+## 🚀 Deployment Links
+
+- 🔗 **Frontend (Next.js on Netlify)**: [🌐 Visit Site](https://your-netlify-app-url.netlify.app)
+- 🔗 **Backend (FastAPI on Render)**: [🌐 API Endpoint](https://health-wellness-agent2-backend.onrender.com)
+
+---
+
+## ⚙️ Technologies Used
+
+- **Next.js 13+ (App Router)**
+- **TypeScript**
+- **CSS Modules**
+- **FastAPI (Python backend)**
+- **Render (Backend Deployment)**
+- **Netlify (Frontend Deployment)**
+
+---
+
+## 📡 How It Works
+
+1. The user types a health-related question into the chat interface.
+2. The frontend sends a `POST` request to the internal API route `/api/chat`.
+3. This route fetches the response from the FastAPI backend via:
+
+NEXT_PUBLIC_BACKEND_URL/query?user_input=...
+
+4. The backend processes the request using local or OpenAI-based logic and returns a structured response.
+5. The frontend displays the bot's reply in a styled chat interface, along with:
+- 🔹 Source: "Local Knowledge" or "AI Generated"
+- 🔸 Token count (if AI was used)
+
+---
+
+## 💡 Features
+
+✅ Real-time health assistant
+✅ Attractive and friendly UI
+✅ Fully responsive for all screen sizes: **mobile, tablet, and desktop**
+✅ Source tagging (local/AI)
+✅ Error handling and typing indicators
+✅ FastAPI backend integration via environment variable
+
+---
+
+## 🌐 Mobile & Responsive UI
+
+📱 This frontend was designed with mobile-first principles and tested on:
+- Android and iOS phones
+- Tablets
+- Laptops and desktops
+
+💡 The layout adapts gracefully with clean fonts, spacing, and responsive chat elements.
+
+---
+
+## 📦 Environment Variable
+
+To communicate with the backend, create a `.env.local` file with this content:
+
+```env
+NEXT_PUBLIC_BACKEND_URL=https://health-wellness-agent2-backend.onrender.com
+
+✅ This ensures backend URL can be accessed securely in the frontend.
+
+To run the app locally:
+
+# 1. Clone the repo
+git clone https://github.com/yourusername/health-wellness-frontend.git
+cd health-wellness-frontend
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment
+touch .env.local
+# Add the backend URL in .env.local
+
+# 4. Run the app
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🌍 Deployment Process
+✅ Netlify Steps:
+Push your frontend code to GitHub.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Log in to Netlify.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Select "New site from Git" and connect your GitHub repository.
 
-## Learn More
+Set build command: npm run build
 
-To learn more about Next.js, take a look at the following resources:
+Set publish directory: out or .next
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add environment variable: NEXT_PUBLIC_BACKEND_URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Click Deploy Site
 
-## Deploy on Vercel
+✅ Site will be auto-redeployed on every Git push.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Health Bot](assets/chat1.png)
+![API Bot](assets/chat2.png)
 
 
-Key Achievements
-Feature	Status	Example
-Local Responses	✅ Working	"Focus on cardio..." → source: "local"
-OpenAI Fallback	✅ Working	"Basic pushup form..." → source: "openai"
-Token Tracking	✅ Working	57 tokens (visible in UI)
-Error Handling	✅ Robust	Clear error messages if APIs fail
+✨ Special Note
+This frontend integrates seamlessly with our intelligent FastAPI backend to provide:
+
+📋 Health tips
+
+🏃‍♂️ Exercise advice
+
+🥗 Nutrition plans
+
+🤖 AI-based responses (when needed)
+
+Designed to give users a smooth and helpful experience across all platforms.
+
+🙏 Acknowledgement
+Developed with ❤️ by Azmat Ali
+Connected to Python backend via API
+Deployed using Render & Netlify
+
+# Check Backend url
 
 https://health-wellness-agent2-backend.onrender.com/
 https://health-wellness-agent2-backend.onrender.com/docs
+
+
